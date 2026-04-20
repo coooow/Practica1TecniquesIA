@@ -1,16 +1,42 @@
 #CREWAI llibreria per instanciar i definir els agents
 from crewai import Agent, Task, Crew, LLM
-
+import os, json
 #LLAMA 3 com a llenguatge LLM instal·lat en local
 llm_local = LLM(
     model="ollama/llama3.2",
     base_url="http://localhost:11434" # Port per defecte de Llama3
 )
 
+#Funciones
+#-------------------------------------------------
+def cargar_usuarios(UserId):
+    
+    path= os.path.join("data", "users", f"{UserId}.json") #Construimos la ruta al archivo JSON del usuario.
+    if not os.path.exists(path):    #comparamos si el archivo existe, si no existe lanzamos un error.
+        raise FileNotFoundError("Usuario no encontrado")
+    with open(path, "r", encoding="utf-8") as f:
+        data= json.load(f)
+    requisitos = data["requisitos"]
+    cv = data["cv"] #Obtenemos el CV del usuario i requisitos, que se encuentran en el archivo JSON.
+
+    # Convertir a texto para el LLM
+    requisitos_txt = "\n".join([f"{k}: {v}" for k, v in requisitos.items()]) # Convertimos los requisitos a un formato de texto legible para el LLM.
+    cv_txt = "\n".join([
+        f"{k}: {', '.join(v) if isinstance(v, list) else v}" 
+        for k, v in cv.items()
+    ])
+
+    return requisitos_txt, cv_txt #Devolvemos los requisitos y el CV en formato de texto para que puedan ser utilizados por los agentes.
+
+
 #Inicialitzem els agents amb el model local.
 #------------------------------------------------------------------------
 
 #Agente para buscar ofertas de trabajo abiertas que cumplan estrictamente los requisitos definidos por el usuario.
+user_id = "user1"
+
+requisitos_usuario, cv_usuario = cargar_usuarios(user_id)
+
 IA_cercador_feina = Agent(
     role="Buscador de Empleo",
     goal=(
@@ -70,7 +96,7 @@ IA_editor_cv = Agent(
 #------------------------------------------------------------------------   
 
 tarea_busqueda=Task(
-    description=("Buscar ofertas de trabajo abiertas que cumplan estrictamente los requisitos definidos por el usuario."),
+    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}"),
     expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."),
     agent=IA_cercador_feina
 )

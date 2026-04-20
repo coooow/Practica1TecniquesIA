@@ -1,0 +1,16 @@
+{
+  "requisitos": {
+    "ubicacion": "Barcelona o remoto",
+    "horario": "parcial o flexible",
+    "disponibilidad": "inmediata",
+    "tipo_puesto": "junior IT, soporte, desarrollo",
+    "modalidad": "hibrido o remoto"
+  },
+  "cv": {
+    "nombre": "Alex Barroso",
+    "formacion": "Ingeniería Informática",
+    "experiencia": "proyectos académicos",
+    "habilidades": ["Python", "Java", "C"],
+    "idiomas": ["español", "catalán", "inglés básico"]
+  }
+}
