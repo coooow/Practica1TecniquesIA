@@ -70,16 +70,59 @@ IA_editor_cv = Agent(
 #------------------------------------------------------------------------   
 
 tarea_busqueda=Task(
-    description="Buscar ofertas de trabajo abiertas que cumplan estrictamente los requisitos definidos por el usuario.",
-    expected_output="Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."
+    description=("Buscar ofertas de trabajo abiertas que cumplan estrictamente los requisitos definidos por el usuario."),
+    expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."),
     agent=IA_cercador_feina
 )
 
-tarea_analisis=Task(
-    description="Analizar las ofertas recopiladas y filtrar aquellas que mejor se ajustan al perfil del usuario.",
-    expected_output="Una lista priorizada de ofertas de trabajo que mejor se ajustan al perfil del usuario, con una justificación detallada del nivel de ajuste para cada una."
+tarea_analisis = Task(
+    description=(
+        "Analizar las ofertas obtenidas y compararlas con el CV del usuario. "
+        "Filtrar y priorizar aquellas que mejor encajan con su perfil profesional."
+    ),
+    expected_output=(
+        "Lista priorizada de ofertas filtradas. Para cada una indicar: "
+        "nivel de encaje (alto, medio, bajo), fortalezas del candidato respecto a la oferta, "
+        "posibles carencias y justificación del ranking."
+    ),
     agent=IA_analista_oportunidades
-)   
+)
+
+tarea_cv=Task(
+    description=(
+        "Para las mejores ofertas seleccionadas, adaptar el CV del usuario y redactar "
+        "una carta de presentación específica para cada oferta."
+    ),
+    expected_output=(
+        "Para cada oferta seleccionada: "
+        "1) Versión optimizada del CV adaptada a la oferta, "
+        "2) Carta de presentación personalizada alineada con los requisitos del puesto."
+    ),
+    agent=IA_editor_cv,
+    output_file="outputs/candidaturas.md"
+)
+#Inicialitzem la CREW
+#-------------------------------------------------------------------
+equipo= Crew(
+    agents=[
+        IA_cercador_feina,
+        IA_analista_oportunidades,
+        IA_editor_cv
+    ],
+    tasks=[
+        tarea_busqueda,
+        tarea_analisis,
+        tarea_cv
+    ],
+    verbose=True
+)
+
+#EXECUCIO
+#-------------------------------------
+# Ejecución
+resultado = equipo.kickoff()
+print(resultado)
+
 
 
 
