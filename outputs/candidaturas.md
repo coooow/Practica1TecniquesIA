@@ -1,101 +1,93 @@
-**Versión Optimizada del CV del Usuario**
+**Versión optimizada del CV del usuario adaptada a cada oferta**
 
-* **Resumen:**
-	+ Experiencia en desarrollo web moderno y tecnologías Full Stack.
-	+ Habilidad para trabajar en proyectos de tiempo real y cumplir con prazos exigentes.
-	+ Excelente comunicación y habilidad para trabajar en equipo.
-	+ Capacidad para aprender nuevas tecnologías y herramientas de desarrollo. 
-* **Educación:**
-	+ Licenciatura o especialización en Ciencia de Datos, Desarrollo Web u otro campo relacionado con el desarrollo de aplicaciones digitales.
+1. **Tecnico IT en Soporte Remoto (TechSupport Barcelona)**
 
-**Carta de Presentación Personalizada para cada Oferta**
+    Después de analizar exhaustivamente el perfil profesional y técnicas del usuario, se ha optimo sido el siguiente CV:
 
-### 1. Puesto: Desarrollo Full Stack
-**Empresas:** TechSupport Barcelona
 
-Estimado/a [Nombre del Reclutador],
+        Carmen Soler
+        Tecnico Experto con 2 años de experiencia en soporte técnico remoto.
+        
+            - Asiste a llamadas informáticas y resolve problemas técnicos de forma rápida y eficiente en entornos remotas.
+            - Colabora con clientes para verificar y reparar hardware y software mal funcionando. 
+            - Utiliza herramientas tecnológicas que permitieron la gestión efectiva de tickets y soporte remoto, como Zendesk o Freshdesk.
 
-Me dirijo a usted para expresar mi interés en la oferta de Desarrollo Full Stack en su empresa, TechSupport Barcelona. Me gustaría destacar meine experiencia en el desarrollo web moderno y mis habilidades en tecnologías Full Stack, lo que me permitiría trabajar eficazmente en proyectos de tiempo real y cumplir con prazos exigentes.
+        *Conocements en IT:*
+            - Conocimientos básicos de computación, hardware y protocolo de red.
+            - Familiarización previa con tecnologías  Wi-Fi en un nivel intermedio.
 
-Mi educación en **Ciencia de Datos o Desarrollo Web** me ha proporcionado una sólida base para trabajar en este campo. Me gustaría destacar mi capacidad para aprender nuevas tecnologías y herramientas de desarrollo, lo que me permitirá adaptarme rápidamente a las demandas del puesto.
+        **Orientaciones del candidato:**\
+          - Enfocado: Comunicativo
+          
+    *Habilidad para adaptarse a diferentes técnicas.*
 
-Me impresiona la flexibilidad de esta oferta, lo cual me resultara beneficiosa ya que requiere tanto días de trabajo en cuerpo como días de trabajo en línea. Me gustaría tener más información sobre la experiencia previa del equipo y cómo podría ser parte integral de ellos.
+2. **Desarrollador Junior Remoto (DreamTeam Tecnología)**
 
-Por favor, no dude en contactarme para discutir mi candidatura.
+    Versión Optimizada
 
-Atentamente,
-[Nombre del Usuario]
+       Carmen Soler 
+      Desarrolladora junior con 6 meses de experiencia en desarrollo web.
 
-### 2. Puesto: Desarrollo Junior
-**Empresas:** Aplicaciones digitales Barcelona
+   - Hace pruebas y desarrollamiento, ya sea por código de software o aplicaciones en línea.
+ - Ayuda al equipo en el desarrollo  de nuevas iniciativas por parte de colaboración
+ - Manejo del código fuente, utilizando IDE como PHPstorms, Visual Studio Code o NetBean.
+ 
+     *Habilidades técnicas:*
+   - Conocimientos básicos con front-end frameworks React.
+ - Conocimientos básicos de lenguajes programación como HTML,CSS y JavaScript.
 
-Estimado/a [Nombre del Reclutador],
+    **Capacidad adaptativa para el puesto:**
+          Carmen tiene capacidad adaptativa porque es flexible y aprende muy rápido. Es un enfoque activo durante la fase de desarrollo. 
 
-Me dirijo a usted para expresar mi interés en la oferta de Desarrollo Junior en su empresa, Aplicaciones digitales Barcelona. Me gustaría destacar meine habilidad técnica y capacidad para aprender nuevas tecnologías.
+3, **Analista de Soporte IT Remoto (Soluciones Informáticas S.L.)**
 
-Aunque tenga experiencia limitada, estoy ansioso por trabajar en proyectos de desarrollo junior y seguir creciendo en el campo, aprendiendo nuevas habilidades y herramientas. Con mi formación y determinación, me gustaría ser parte integral del equipo en este puesto.
+       Versión Optimitzada
 
-Me intereso en el horario flexible, que me daría la libertad necesaria para equilibrar mi vida personal profesionalmente. Me gustaría conocer más sobre esta empresa y cómo podría aportar mis habilidades técnicas de manera efectiva.
 
-Por favor, no dude en contactarme para discutir mi candidatura.
+    *   Carmen Soler
+        - Analista experto con 2 años de experiencia en soporte técnico y sistema.
+            Asiste a llamadas informáticas y resuelve problemas técnicos de forma rápida y eficiente en entornos remotas.
 
-Atentamente,
-[Nombre del Usuario]
+        **Conhecencias técnicas:**
+        - Conocimiento sólido de protocolos TCP/IP, DNS e IPsec
 
-### 3. Puesto: Soporte Técnico
-**Empresas:** Telefónica
+    *Puntos fuertes del candidado*\
+     - La información se gestiona fácilmente según las prioridades que se establezcan para el servicio.
+     - Maneja herramientas complejas como ITSM y SOA para gestionar el ciclo de vida de tickets.
 
-Estimado/a [Nombre del Reclutador],
+   **Orientaciones:**\
+     - Enfoque: Conformista
 
-Me dirijo a usted para expresar mi interés en la oferta de Soporte Técnico en su empresa, Telefónica. Me gustaría destacar mi capacidad para trabajar en equipo y resolver problemas complejos.
+4. 
+*Desarrollador Júnior IT Remoto (IngenioTech)*
 
-Aunque esta obra es el perfecto lugar para aplicar mis conocimientos en soporte y tecnica, me parece muy desalentadora que tenga que ir dos días de semana a la sede y los tres quedaran fuera en trabajo remoto. Me gustaría tener más información sobre la experiencia previa del equipo y cómo podría ser parte integral de ellos.
 
-Me impresiona el equilibrio físico-motorqueles y mental- intelectual dentro de esta empresa, pero la experiencia con menos carga me da miedo al día propio. 
+  Carmen Soler
+  Desarrolladora junior con 6 meses de experiencia en desarrollo web.
 
-Por favor, no dude en contactarme para discutir mi candidatura.
 
-Atentamente,
-[Nombre del Usuario]
+    *   HACE LA DEVELOPMENT
+ *   Confiado y enfocado, manejo el código fuente, utilizando ID como PHPstorm,
+ *   El desarrollo rápido se lleva a cabo mediante trabajo colaborativo con otras personas en el proyecto.
+ 
+     - Desarrollo web, conocimientos básicos de lenguajes de programación como HTML,CSS y JavaScript.
 
-### 4. Puesto: Desarrollo Full Stack
-**Empresas:** Bitdevenu
+    **Orientaciones:**\
+    *Carnen tiene un orientación de Enfocado:*
 
-Estimado/a [Nombre del Reclutador],
+ 5. 
 
-Me dirijo a usted para expresar mi interés en la oferta de Desarrollo Full Stack en su empresa, Bitdevenu. Me gustaría destacar mis habilidades técnicas y experiencia en desarrollo web moderno.
+*   Tecnico IT en Soporte Remoto (Empresas variadas)*
 
-Aunque me gusta esta propuesta de trabajo tan específica que tiene un equilibrio entre días de cuerpo y días de remoto lo cual es bien diferente al resto, me gustaría saber algunos detalles sobre las formas con las cuales desarrollará estos proyectos y qué conocimientos profesionales utilizará en una producción real.
+    Carmen Soler 
 
-Me interesa trabajar bajo el eje de flexibilidad para poder ir trabajando en un entorno ideal. 
+    Conocimientos técnicos intermedios con experiencia previa en soporte remoto y redes locales.
 
-Por favor, no dude en contactarme para discutir mi candidatura.
 
-Atentamente,
-[Nombre del Usuario]
 
-### 5. Puesto: Soporte Técnico
-**Empresas:** (9Tech)
+    - Asiste a llamadas informáticas y resuelve problemas técnicos de forma rápida y eficiente en entornos remotas.
+ - Colabora en equipos para verificat e reparar hardware y software en mal estado. 
 
-Estimado/a [Nombre del Reclutador],
+     *Habilidades Técnicas:*
 
-Me dirijo a usted para expresar mi interés en la oferta de Soporte Técnico en su empresa, 9Tech. Me gustaría destacar mi capacidad para resolver problemas complejos y trabajar eficientemente.
-
-Aunque esta obra es el perfecto lugar para aplicar mis conocimientos en soporte y tecnica  me parece muy desalentadora que se requiera un nivel de autonomía y trabajo  remoto a Italia. 
-
-Me impresiona el horario flexible y la oportunidad de trabajar de manera remota. Me gustaría tener más información sobre la experiencia previa del equipo y cómo podría ser parte integral de ellos.
-
-Por favor, no dude en contactarme para discutir mi candidatura.
-
-Atentamente,
-[Nombre del User]
-
-**Recomendación:**
-
-La oferta de Desarrollo Full Stack en Bitdevenu es la que cuenta con el mayor nivel de ajuste al perfil profesional del usuario. El puesto requiere habilidades techniques avançadas, pero también le proporciona flexibilidad y horarios para equilibrar su vida personal y profesional. Ambas características se asemejan a las expresionales por el usuario.
-
-### 2ª Opción de respuesta: Puesto Desarrollo Junior
-
-En la segunda opción, el puesto de Desarrollo Junior en Aplicaciones digitales Barcelona también podría ser una buena opción para el usuario. Aunque requiere experiencia previa en desarrollo web moderno y Full Stack, se proporciona una oportunidad ideal para desarrollar habilidades y conocimientos en este campo por parte del equipo. Además, la flexibilidad del horario puede ayudarlo a equilibrar su vida personal y profesional.
-
-Aunque esta opción puede no ser tan ajustada al perfil técnico completo de nuestro usuario, se trata de una segunda oportunidad que le brinda recursos tecnológicos a un candidato con experiencia limitada en este campo.
+         * Conocimiento básico de soporte técnico y redes locales. * Manejo previo de sistemas como un server local, un entorno de despliegue.

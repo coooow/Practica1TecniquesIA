@@ -1,0 +1,55 @@
+```json
+{
+  "información_contacto": {
+    "nombre": "Carmen Soler",
+    "cargo": "Lead Backend Engineer & Distributed Systems Expert",
+    "ubicación": "Barcelona, España",
+    "email": "carmen.soler@email.com",
+    "redes_sociales": "https://linkedin.com/in/carmensoler"
+  },
+  "perfil_profesional": {
+    "expuesta": "Systems-focused engineering leader con 8+ años de experiencia en diseñando, construyendo y escalando infraestructuras de backend altamente disponibles. Registro demostrado de liderar equipos integrales, migrar arquitecturas monolíticas a servicios micros, y fomentar una cultura de excelencia en el ingeniería constante entrega.",
+    "habilidades_técnicas": {
+      "idiomas_programación": ["Go", "Rust", "Java", "Python", "Bash"],
+      "arquitectura": ["Microservices", "Event-Driven Architecture", "gRPC", "RESTful APIs", "System Design"],
+      "infraestructura": ["Kubernetes", "docker", "Terraform", "AWS (EKS, RDS, DynamoDB)", "GCP"],
+      "datOS_y_messenger": ["PostgreSQL", "Redis", "Apache Kafka", "RabbitMQ", "Elasticsearch"]
+    }
+  },
+  "experiencia_profesional": [
+    {
+      "cargo": "Staff Software Engineer / Backend Lead",
+      "empresa": "FinTech Solutions Inc.",
+      "ubicación_remota": "Remoto",
+      "fecha_empezo": "Mar 2021 - Present",
+      "resumen_expérience": `
+        Lideré un equipo de 8 ingenieros de backend en una revaluación extensiva del motor de transacciones centrales, migrando desde una monolítica arquitectura Java para servicios micros altamente concorrentes.
+        Mejoraría el tráfico del sistema en un 400%, reduciendo el latencia en un 60% y manejando con éxito más de 10,000 transacciones por segundo durante los cargamentos de punto máximos.
+        Diseñe e implementara una robusta arquitectura basada en Event-Driven utilizando Apache Kafka para garantizar la procesión asíncrona asistida que no pierda datos.
+        Mentaría a los ingenieros senior y medio, establecería estándares de codificación, y implementará los flujos de pipeline CI/CD usand GitHub Actions y ArgoCD.
+      `
+    },
+    {
+      "cargo": "Senior Backend Engineer",
+      "empresa": "CloudStream Networks",
+      "ubicación_edificio": "Barcelona, España",
+      "fecha_empezo": "Feb 2018 - Feb 2021",
+      "resumen_expérience": `
+        Proyectara un capa de almacenamiento distribuido utilizando Redis Cluster, reduciendo las cargas del sistema en un 70% y mejorando significativamente los tiempos de respuesta a API.
+        Autorice módulos de Terraform para standardizar la provisión de infraestructura cloud en múltiples entornos de desarrollo y producción.
+        Resolvería críticas pinchazos de rendimiento profiriendo y optimizando los puntos culminantes REST de alta demanda.
+      `
+    }
+  ],
+  "herramientas_y_technologías": {
+    "idiomas_programación": ["Go", "Rust", "Java", "Python", "Bash"],
+    "arquitectura": ["Microservices", "Event-Driven Architecture", "gRPC", "RESTful APIs", "System Design"],
+    "infraestructura": ["Kubernetes", "docker", "Terraform", "AWS (EKS, RDS, DynamoDB)", "GCP"],
+    "data_y_messenger": ["PostgreSQL", "Redis", "Apache Kafka", "RabbitMQ", "Elasticsearch"]
+  },
+  "certificaciones_y_educacion": {
+    "educación": "sobre todas las relevantes.",
+    "certificaciones": "sobre todas las relevantes."
+  }
+}
+```

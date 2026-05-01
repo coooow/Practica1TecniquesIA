@@ -1,5 +1,6 @@
 #CREWAI llibreria per instanciar i definir els agents
 from crewai import Agent, Task, Crew, LLM
+from crewai_tools import FileReadTool
 import os, json
 #LLAMA 3 com a llenguatge LLM instal·lat en local
 llm_local = LLM(
@@ -7,7 +8,9 @@ llm_local = LLM(
     base_url="http://localhost:11434" # Port per defecte de Llama3
 )
 
-#Funciones
+path = "data/users/lead_swe_cv.tex" #Ruta al CV del usuario
+
+#Funciones & Herramientas
 #-------------------------------------------------
 def cargar_usuarios(UserId):
     
@@ -28,6 +31,10 @@ def cargar_usuarios(UserId):
 
     return requisitos_txt, cv_txt #Devolvemos los requisitos y el CV en formato de texto para que puedan ser utilizados por los agentes.
 
+# Read the file using standard Python
+with open(path, "r", encoding="utf-8") as file:
+    latex_text = file.read()
+
 
 #Inicialitzem els agents amb el model local.
 #------------------------------------------------------------------------
@@ -36,6 +43,19 @@ def cargar_usuarios(UserId):
 user_id = "user1"
 
 requisitos_usuario, cv_usuario = cargar_usuarios(user_id)
+
+IA_extractor_dades = Agent(
+    role="Extractor de Datos",
+    goal=(
+        "Extraer y estructurar la información clave del CV del usuario, identificando habilidades, experiencia, formación y logros relevantes para el mercado laboral actual."
+    ),
+    backstory=(
+        "Eres un experto en análisis de CVs y perfiles profesionales. Tienes una gran capacidad para identificar y extraer la información más relevante de un CV, incluyendo habilidades técnicas, experiencia laboral, formación académica y logros destacados. Eres capaz de interpretar correctamente la información, incluso cuando está presentada de forma no estructurada, y de organizarla de manera clara y accesible para su posterior análisis."
+    ),
+    verbose=True,
+    allow_delegation=False,
+    llm=llm_local
+)
 
 IA_cercador_feina = Agent(
     role="Buscador de Empleo",
@@ -95,6 +115,17 @@ IA_editor_cv = Agent(
 #Inicialitzem les tasques que cada agent ha de realitzar.
 #------------------------------------------------------------------------   
 
+tarea_extraccion = Task(
+    description=(
+        "Analiza el siguiente texto extraído de un CV en formato LaTeX:\n\n"
+        "{cv_content}\n\n" # <--- Pass the text directly here
+        "Extraer y estructurar la información clave del CV..."
+    ),
+    expected_output="CV del usuario estructurado en formato JSON.",
+    agent=IA_extractor_dades,
+    output_file="outputs/cv_estructurado.json"
+)
+
 tarea_busqueda=Task(
     description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}"),
     expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."),
@@ -103,7 +134,7 @@ tarea_busqueda=Task(
 
 tarea_analisis = Task(
     description=(
-        "Analizar las ofertas obtenidas y compararlas con el CV del usuario. "
+        "Analizar las ofertas obtenidas y compararlas con el CV del usuario."
         "Filtrar y priorizar aquellas que mejor encajan con su perfil profesional."
     ),
     expected_output=(
@@ -131,11 +162,13 @@ tarea_cv=Task(
 #-------------------------------------------------------------------
 equipo= Crew(
     agents=[
+        IA_extractor_dades,
         IA_cercador_feina,
         IA_analista_oportunidades,
         IA_editor_cv
     ],
     tasks=[
+        tarea_extraccion,
         tarea_busqueda,
         tarea_analisis,
         tarea_cv
@@ -146,8 +179,9 @@ equipo= Crew(
 #EXECUCIO
 #-------------------------------------
 # Ejecución
-resultado = equipo.kickoff()
-print(resultado)
+resultado = equipo.kickoff(inputs={
+    "cv_content": latex_text
+    })
 
 
 
