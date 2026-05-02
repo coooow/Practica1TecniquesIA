@@ -32,10 +32,11 @@ def cargar_usuarios(UserId):
 
     return requisitos_txt, cv_txt #Devolvemos los requisitos y el CV en formato de texto para que puedan ser utilizados por los agentes.
 
-# Read the file using standard Python
+# Leer el CV en formato LaTeX
 with open(path_cv, "r", encoding="utf-8") as file:
     latex_text = file.read()
 
+# Leer el ejemplo de CV estructurado en formato Markdown
 with open(path_example, "r", encoding="utf-8") as file:
     ejemplo_cv = file.read()
 
@@ -121,7 +122,7 @@ IA_editor_cv = Agent(
 tarea_extraccion = Task(
     description=(
         "Analiza el siguiente texto extraído de un CV en formato LaTeX:\n\n"
-        "{cv_content}\n\n" # <--- Pass the text directly here
+        "{cv_content}\n\n" 
         "Extraer y estructurar la información clave del CV, identificando habilidades, experiencia, formación y logros relevantes para el mercado laboral actual. "
     ),
     expected_output="CV del usuario estructurado en formato Markdown con su información de contacto, perfil profesional, experiencia y formación. Asegurarse de que esté correctamente formateado usando la estructura basada en este ejemplo {ejemplo_cv}.",
