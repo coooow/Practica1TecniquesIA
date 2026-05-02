@@ -1,93 +1,86 @@
-**Versión optimizada del CV del usuario adaptada a cada oferta**
+**Versión Optimizada del CV del Usuario Adaptada a la Oferta 1: Desarrollador Junior de Soporte en remoto**
 
-1. **Tecnico IT en Soporte Remoto (TechSupport Barcelona)**
+### Resumen:
+Apasionado por ayudar y resolver problemas técnicos, buscando una oportunidad para desarrollar mis habilidades de soporte técnico remoto y aprender nuevas tecnologías.
 
-    Después de analizar exhaustivamente el perfil profesional y técnicas del usuario, se ha optimo sido el siguiente CV:
+### Experiencia Laboral Relevante
 
+- **Software Engineer** ( TechInnovate Solutions)
+  - Ubicación: Barcelona, España
+  - Fecha contractinga: Jan 2024 -- Presente
+  - Responsabilidades:
+    \+ Develop software applications and integrations to support business needs.
+    + Solve customer problems via email, chat, or ticket systems.
+    \+ Maintain a high level of technical knowledge to provide excellent support.
 
-        Carmen Soler
-        Tecnico Experto con 2 años de experiencia en soporte técnico remoto.
-        
-            - Asiste a llamadas informáticas y resolve problemas técnicos de forma rápida y eficiente en entornos remotas.
-            - Colabora con clientes para verificar y reparar hardware y software mal funcionando. 
-            - Utiliza herramientas tecnológicas que permitieron la gestión efectiva de tickets y soporte remoto, como Zendesk o Freshdesk.
+**Habilidades Técnicas Relevantes**
 
-        *Conocements en IT:*
-            - Conocimientos básicos de computación, hardware y protocolo de red.
-            - Familiarización previa con tecnologías  Wi-Fi en un nivel intermedio.
+- **Soporte técnico**
+  - Experiencia previa en soporte técnico y resolución de problemas
+  - Conocimientos básicos de Python, HTML/CSS, Java o otros lenguajes para realizar actividades de programación y depuración.
+  
+**Proyectos Personales Relevantes**
 
-        **Orientaciones del candidato:**\
-          - Enfocado: Comunicativo
-          
-    *Habilidad para adaptarse a diferentes técnicas.*
+- **Diseño y desarrollo simple**
+    \+ Entendido a cerca cómo resolver problemas mediante el uso de software herramientas
 
-2. **Desarrollador Junior Remoto (DreamTeam Tecnología)**
+**Educación y Habilidades Adicionales**
 
-    Versión Optimizada
-
-       Carmen Soler 
-      Desarrolladora junior con 6 meses de experiencia en desarrollo web.
-
-   - Hace pruebas y desarrollamiento, ya sea por código de software o aplicaciones en línea.
- - Ayuda al equipo en el desarrollo  de nuevas iniciativas por parte de colaboración
- - Manejo del código fuente, utilizando IDE como PHPstorms, Visual Studio Code o NetBean.
- 
-     *Habilidades técnicas:*
-   - Conocimientos básicos con front-end frameworks React.
- - Conocimientos básicos de lenguajes programación como HTML,CSS y JavaScript.
-
-    **Capacidad adaptativa para el puesto:**
-          Carmen tiene capacidad adaptativa porque es flexible y aprende muy rápido. Es un enfoque activo durante la fase de desarrollo. 
-
-3, **Analista de Soporte IT Remoto (Soluciones Informáticas S.L.)**
-
-       Versión Optimitzada
-
-
-    *   Carmen Soler
-        - Analista experto con 2 años de experiencia en soporte técnico y sistema.
-            Asiste a llamadas informáticas y resuelve problemas técnicos de forma rápida y eficiente en entornos remotas.
-
-        **Conhecencias técnicas:**
-        - Conocimiento sólido de protocolos TCP/IP, DNS e IPsec
-
-    *Puntos fuertes del candidado*\
-     - La información se gestiona fácilmente según las prioridades que se establezcan para el servicio.
-     - Maneja herramientas complejas como ITSM y SOA para gestionar el ciclo de vida de tickets.
-
-   **Orientaciones:**\
-     - Enfoque: Conformista
-
-4. 
-*Desarrollador Júnior IT Remoto (IngenioTech)*
-
-
-  Carmen Soler
-  Desarrolladora junior con 6 meses de experiencia en desarrollo web.
-
-
-    *   HACE LA DEVELOPMENT
- *   Confiado y enfocado, manejo el código fuente, utilizando ID como PHPstorm,
- *   El desarrollo rápido se lleva a cabo mediante trabajo colaborativo con otras personas en el proyecto.
- 
-     - Desarrollo web, conocimientos básicos de lenguajes de programación como HTML,CSS y JavaScript.
-
-    **Orientaciones:**\
-    *Carnen tiene un orientación de Enfocado:*
-
- 5. 
-
-*   Tecnico IT en Soporte Remoto (Empresas variadas)*
-
-    Carmen Soler 
-
-    Conocimientos técnicos intermedios con experiencia previa en soporte remoto y redes locales.
+- **Curso Online en Soporte Técnico**, 
+  * Fecha: Curruntemente estudio, se anticipa que finalizará en Marzo de 202X
+* Desarrollo de habilidades adicionales en soporte técnico
 
 
 
-    - Asiste a llamadas informáticas y resuelve problemas técnicos de forma rápida y eficiente en entornos remotas.
- - Colabora en equipos para verificat e reparar hardware y software en mal estado. 
+**Carta de Presentación Personalizada Adaptada a la Oferta 1**
 
-     *Habilidades Técnicas:*
+Estimado/a [Nombre del dueño o equipo de la empresa],
 
-         * Conocimiento básico de soporte técnico y redes locales. * Manejo previo de sistemas como un server local, un entorno de despliegue.
+Me dirijo a ti para expresarte mi interés y entusiasmo por el puesto de Desarrollador Junior de Soporte en remoto en SYKES. Con una perspicaz curiosidad, creo estar listo para desarrollar mis habilidades técnicas como apoyo al cliente.
+
+En el pasado, he estado motivado a realizar tareas que involucran solucionar problema y mejorar continuamente habilidad, como el programa informático basicas de Python, herramientas útiles para ayudar a la empresa.
+Con mi experiencia previamente mencionada en desarrollo Full Stack con tecnológios como React y Spring boot, así como mi curvio de formación académica  en Ingeniería Informática, estoy ansioso por utilizar mis habilidades técnicas para brindar un excelente servicio al cliente.
+
+Me parece que sería una oportunidad excelente para conectarme con los clientes de manera remota y continuar mejorando en mis habilidadies de programação a solucionar problemas.
+Estoy dispuesto a trabajar desde casa, aunque si necesario estaré en la oficina de manera flexible, durante horarios parciales (20 horas/tiempo).
+
+Me gustaría agradecer por esta oportunidad para considerarme y participar en un entrevista virtual.
+
+Atentamente,
+Maria Garcia  
+
+---
+
+**Versión Optimizada del CV del Usuario Adaptada a la Oferta 2: Desarrollador Full Stack en Barcelona**
+
+**Resumen:**
+Apasionado por el desarrollo de software que busco aplicaciones innovadoras. Asumiré todos los niveles desafiantes y deseo aprovechar todas las oportunidades de crecimiento.
+
+### Experiencia Laboral
+
+- **Senior Software Engineer** (TechInnovate Solutions)
+  - Ubicación: Barcelona, España
+  - Fecha contractinga: Jan 2024 -- Presente
+  - Responsabilidades:
+    \+ Diseñar e implementar nuevas características en software al mejorar el rendimiento.
+    + Colaboración con equipos para mejorar desarrollo sprints.
+    \+ Aprender y mantener técnicas de trabajo sólidas.
+
+**Habilidades Técnicas Relevantes**
+
+- **Desarrollo de Software**
+   - Experiencia previa como Desarrollador Full Stack o similar
+   - Habilidad tecnica sólida para trabajar con una amplía gama de herramientas y frameworks de desarrollo en Python, JavaScript y Java.
+
+**Proyectos Destacados Relevantes**
+
+- **Real Time Chat Application**  
+  Tecnología utilizada: Node.js WebSockets. Descripción detallada: 
+    \+ Aplicaciones de chat en tiempo real
+    + Contenedorización: Docker
+
+**Educación y Habilidades Adicionales**
+
+- **Curso en Soporte Técnico**
+* Fecha terminada actual en (actualizar fecha)
+- Experiencia previa en soporte técnico y resolución problemas

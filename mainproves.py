@@ -8,7 +8,8 @@ llm_local = LLM(
     base_url="http://localhost:11434" # Port per defecte de Llama3
 )
 
-path = "data/users/lead_swe_cv.tex" #Ruta al CV del usuario
+path_cv = "data/users/software_engineer_cv.tex" #Ruta al CV del usuario
+path_example = "outputs/cv_estructurado_ejemplo.md" #Ruta al ejemplo de CV estructurado para el agente extractor de datos.
 
 #Funciones & Herramientas
 #-------------------------------------------------
@@ -32,9 +33,11 @@ def cargar_usuarios(UserId):
     return requisitos_txt, cv_txt #Devolvemos los requisitos y el CV en formato de texto para que puedan ser utilizados por los agentes.
 
 # Read the file using standard Python
-with open(path, "r", encoding="utf-8") as file:
+with open(path_cv, "r", encoding="utf-8") as file:
     latex_text = file.read()
 
+with open(path_example, "r", encoding="utf-8") as file:
+    ejemplo_cv = file.read()
 
 #Inicialitzem els agents amb el model local.
 #------------------------------------------------------------------------
@@ -119,11 +122,11 @@ tarea_extraccion = Task(
     description=(
         "Analiza el siguiente texto extraído de un CV en formato LaTeX:\n\n"
         "{cv_content}\n\n" # <--- Pass the text directly here
-        "Extraer y estructurar la información clave del CV..."
+        "Extraer y estructurar la información clave del CV, identificando habilidades, experiencia, formación y logros relevantes para el mercado laboral actual. "
     ),
-    expected_output="CV del usuario estructurado en formato JSON.",
+    expected_output="CV del usuario estructurado en formato Markdown con su información de contacto, perfil profesional, experiencia y formación. Asegurarse de que esté correctamente formateado usando la estructura basada en este ejemplo {ejemplo_cv}.",
     agent=IA_extractor_dades,
-    output_file="outputs/cv_estructurado.json"
+    output_file="outputs/cv_estructurado.md"
 )
 
 tarea_busqueda=Task(
@@ -180,7 +183,8 @@ equipo= Crew(
 #-------------------------------------
 # Ejecución
 resultado = equipo.kickoff(inputs={
-    "cv_content": latex_text
+    "cv_content": latex_text,
+    "ejemplo_cv": ejemplo_cv
     })
 
 
