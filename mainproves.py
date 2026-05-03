@@ -116,6 +116,39 @@ IA_editor_cv = Agent(
     llm=llm_local
 )
 
+IA_redactor_carta = Agent(
+    role="Redactor de carta de presentación",
+    goal=(
+        "Redactar una única carta de presentación personalizada exclusivamente para la mejor oferta seleccionada, usando el CV del usuario y el análisis de compatibilidad realizado."
+    ),
+    backstory=(
+        "Eres un especialista en redacción profesional orientada a procesos de selección. "
+        "Tu trabajo consiste en crear una carta de presentación clara, específica y adaptada "
+        "únicamente a la oferta con mayor encaje. No generas cartas genéricas ni múltiples versiones. "
+        "Analizas la mejor oportunidad detectada, identificas los puntos fuertes del candidato y redactas "
+        "una carta breve, profesional y alineada con los requisitos reales del puesto."
+    ),
+    verbose=True,
+    allow_delegation=False,
+    llm=llm_local
+)
+
+IA_resumidor_proceso = Agent(
+    role="Resumidor del Proceso",
+    goal=(
+        "Resumir de manera clara y concisa todo el proceso realizado por los agentes, explicando qué se ha hecho, qué resultados se han obtenido y cuál ha sido la decisión final."
+    ),
+    backstory=(
+        "Eres un experto en síntesis de procesos complejos. Tienes capacidad para resumir de forma "
+        "ordenada el trabajo realizado por varios agentes, eliminando información redundante y destacando "
+        "solo los puntos más importantes. Tu objetivo es que el usuario entienda rápidamente qué CV se ha "
+        "analizado, qué ofertas se han buscado, cuál ha sido la mejor oportunidad y qué documentos finales "
+        "se han generado."
+    ),
+    verbose=True,
+    allow_delegation=False,
+    llm=llm_local
+)
 #Inicialitzem les tasques que cada agent ha de realitzar.
 #------------------------------------------------------------------------   
 
@@ -162,6 +195,54 @@ tarea_cv=Task(
     agent=IA_editor_cv,
     output_file="outputs/candidaturas.md"
 )
+tarea_carta_mejor_oferta = Task(
+    description=(
+        "A partir del CV estructurado, las ofertas encontradas y el análisis de oportunidades, "
+        "identificar la oferta con mayor nivel de encaje y redactar una única carta de presentación "
+        "personalizada exclusivamente para esa oferta. "
+        "No redactar cartas para ofertas secundarias ni generar versiones alternativas."
+    ),
+    expected_output=(
+        "Carta de presentación personalizada únicamente para la mejor oferta seleccionada. "
+        "Debe incluir: saludo profesional, breve presentación del candidato, relación directa "
+        "entre el perfil del usuario y los requisitos de la oferta, motivación por el puesto "
+        "y cierre formal."
+    ),
+    agent=IA_redactor_carta,
+    context=[
+        tarea_extraccion,
+        tarea_busqueda,
+        tarea_analisis
+    ],
+    output_file="outputs/carta_mejor_oferta.md"
+)
+
+tarea_resumen_proceso = Task(
+    description=(
+        "Resumir todo el proceso realizado por el sistema multiagente de manera clara y concisa. "
+        "Explicar qué información se ha extraído del CV, qué criterios se han usado para buscar ofertas, "
+        "qué ofertas se han analizado, cuál ha sido seleccionada como mejor opción y qué documentos finales "
+        "se han generado."
+    ),
+    expected_output=(
+        "Resumen final del proceso en formato Markdown. Debe incluir: "
+        "1) CV analizado, "
+        "2) requisitos del usuario, "
+        "3) búsqueda de ofertas, "
+        "4) análisis y filtrado, "
+        "5) mejor oferta seleccionada, "
+        "6) carta de presentación generada, "
+        "7) conclusión final breve."
+    ),
+    agent=IA_resumidor_proceso,
+    context=[
+        tarea_extraccion,
+        tarea_busqueda,
+        tarea_analisis,
+        tarea_carta_mejor_oferta
+    ],
+    output_file="outputs/resumen_proceso.md"
+)
 #Inicialitzem la CREW
 #-------------------------------------------------------------------
 equipo= Crew(
@@ -169,13 +250,17 @@ equipo= Crew(
         IA_extractor_dades,
         IA_cercador_feina,
         IA_analista_oportunidades,
-        IA_editor_cv
+        IA_editor_cv,
+        IA_redactor_carta,
+        IA_resumidor_proceso
     ],
     tasks=[
         tarea_extraccion,
         tarea_busqueda,
         tarea_analisis,
-        tarea_cv
+        tarea_cv,
+        tarea_carta_mejor_oferta,
+        tarea_resumen_proceso
     ],
     verbose=True
 )
