@@ -1,6 +1,5 @@
 #CREWAI llibreria per instanciar i definir els agents
 from crewai import Agent, Task, Crew, LLM
-from crewai_tools import FileReadTool
 import os, json
 #LLAMA 3 com a llenguatge LLM instal·lat en local
 llm_local = LLM(
