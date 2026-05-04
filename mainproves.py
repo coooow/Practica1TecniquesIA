@@ -96,24 +96,6 @@ IA_analista_oportunidades = Agent(
     llm=llm_local
 )
 #Agente para editar el CV y redactar cartas de presentación personalizadas para cada oferta seleccionada.
-IA_editor_cv = Agent(
-    role="Editor de CV",
-    goal=(
-        "Adaptar y optimizar el CV del usuario y redactar una carta de presentación específica "
-        "para cada oferta seleccionada, maximizando la claridad, relevancia y alineación con la vacante."
-    ),
-    backstory=(
-        "Eres un experto en recursos humanos y procesos de selección. Conoces cómo funcionan los "
-        "sistemas de filtrado (ATS) y cómo evalúan los reclutadores las candidaturas. Eres capaz de "
-        "reescribir CVs para destacar los aspectos más relevantes según cada oferta, optimizando "
-        "palabras clave, estructura y contenido. Además, redactas cartas de presentación personalizadas, "
-        "claras y persuasivas, alineadas con los requisitos del puesto y enfocadas a maximizar las "
-        "probabilidades de ser seleccionado."
-    ),
-    verbose=True,
-    allow_delegation=False,
-    llm=llm_local
-)
 
 IA_redactor_carta = Agent(
     role="Redactor de carta de presentación",
@@ -125,7 +107,7 @@ IA_redactor_carta = Agent(
         "Tu trabajo consiste en crear una carta de presentación clara, específica y adaptada "
         "únicamente a la oferta con mayor encaje. No generas cartas genéricas ni múltiples versiones. "
         "Analizas la mejor oportunidad detectada, identificas los puntos fuertes del candidato y redactas "
-        "una carta breve, profesional y alineada con los requisitos reales del puesto."
+        "una carta breve, profesional y alineada con los requisitos reales del puesto. Como mucho de 150 palabas."
     ),
     verbose=True,
     allow_delegation=False,
@@ -155,16 +137,20 @@ tarea_extraccion = Task(
     description=(
         "Analiza el siguiente texto extraído de un CV en formato LaTeX:\n\n"
         "{cv_content}\n\n" 
-        "Extraer y estructurar la información clave del CV, identificando habilidades, experiencia, formación y logros relevantes para el mercado laboral actual. "
+        "Extraer y estructurar la información clave del CV, identificando habilidades, experiencia, formación y logros "
+        "relevantes para el mercado laboral actual. "
     ),
-    expected_output="CV del usuario estructurado en formato Markdown con su información de contacto, perfil profesional, experiencia y formación. Asegurarse de que esté correctamente formateado usando la estructura basada en este ejemplo {ejemplo_cv}.",
+    expected_output="CV del usuario estructurado en formato Markdown con su información de contacto, perfil profesional, " \
+    "experiencia y formación. Asegurarse de que esté correctamente formateado usando la estructura basada en este ejemplo {ejemplo_cv}.",
     agent=IA_extractor_dades,
     output_file="outputs/cv_estructurado.md"
 )
 
 tarea_busqueda=Task(
     description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}"),
-    expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."),
+    expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos "
+    "por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."
+    "Incluye en enlace a la oferta original."),
     agent=IA_cercador_feina
 )
 
@@ -185,19 +171,7 @@ tarea_analisis = Task(
     ]
 )
 
-tarea_cv=Task(
-    description=(
-        "Para las mejores ofertas seleccionadas, adaptar el CV del usuario y redactar "
-        "una carta de presentación específica para cada oferta."
-    ),
-    expected_output=(
-        "Para cada oferta seleccionada: "
-        "1) Versión optimizada del CV adaptada a la oferta, "
-        "2) Carta de presentación personalizada alineada con los requisitos del puesto."
-    ),
-    agent=IA_editor_cv,
-    output_file="outputs/candidaturas.md"
-)
+
 tarea_carta_mejor_oferta = Task(
     description=(
         "A partir del CV estructurado, las ofertas encontradas y el análisis de oportunidades, "
@@ -253,7 +227,6 @@ equipo= Crew(
         IA_extractor_dades,
         IA_cercador_feina,
         IA_analista_oportunidades,
-        IA_editor_cv,
         IA_redactor_carta,
         IA_resumidor_proceso
     ],
@@ -261,7 +234,6 @@ equipo= Crew(
         tarea_extraccion,
         tarea_busqueda,
         tarea_analisis,
-        tarea_cv,
         tarea_carta_mejor_oferta,
         tarea_resumen_proceso
     ],
