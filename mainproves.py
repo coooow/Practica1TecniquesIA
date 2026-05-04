@@ -7,45 +7,42 @@ llm_local = LLM(
     base_url="http://localhost:11434" # Port per defecte de Llama3
 )
 
-path_cv = "data/users/software_engineer_cv.tex" #Ruta al CV del usuario
 path_example = "outputs/cv_estructurado_ejemplo.md" #Ruta al ejemplo de CV estructurado para el agente extractor de datos.
+
+#Input del usuario
+#-------------------------------------------------
+print("Indica el path del CV en formato LaTeX que quieres analizar: (ejemplo: data/users/software_engineer_cv.tex)")
+
+cv_path_raw = input()
+cv_path = "data/users/"+cv_path_raw if not cv_path_raw.startswith("data/users/") else cv_path_raw
+with open(cv_path, 'r') as f:
+    latex_text = f.read()
+
+print("Indica la ubicación de tu busqueda de trabajo: (ejemplo: Barcelona, Madrid, etc.)")
+location = input()
+
+print("Indica tu disponibilidad horaria: (ejemplo: jornada completa, media jornada, etc.)")
+availability = input()
+
+print("Indica el tipo de jornada que prefieres: (ejemplo: presencial, remoto, híbrido)")
+work_type = input()
+
+print("Indica tu disponibilidad para empezar a trabajar: (ejemplo: inmediata, 1 mes, etc.)")
+start_date = input()
+
+print("Indica el tipo de puesto que buscas: (ejemplo: desarrollador backend, analista de datos, etc.)")
+job_type = input()
+
+requisitos_usuario = f"Ubicación: {location}\nDisponibilidad: {availability}\nTipo de jornada: {work_type}\nDisponibilidad para empezar: {start_date}\nTipo de puesto: {job_type}"
 
 #Funciones & Herramientas
 #-------------------------------------------------
-def cargar_usuarios(UserId):
-    
-    path= os.path.join("data", "users", f"{UserId}.json") #Construimos la ruta al archivo JSON del usuario.
-    if not os.path.exists(path):    #comparamos si el archivo existe, si no existe lanzamos un error.
-        raise FileNotFoundError("Usuario no encontrado")
-    with open(path, "r", encoding="utf-8") as f:
-        data= json.load(f)
-    requisitos = data["requisitos"]
-    cv = data["cv"] #Obtenemos el CV del usuario i requisitos, que se encuentran en el archivo JSON.
-
-    # Convertir a texto para el LLM
-    requisitos_txt = "\n".join([f"{k}: {v}" for k, v in requisitos.items()]) # Convertimos los requisitos a un formato de texto legible para el LLM.
-    cv_txt = "\n".join([
-        f"{k}: {', '.join(v) if isinstance(v, list) else v}" 
-        for k, v in cv.items()
-    ])
-
-    return requisitos_txt, cv_txt #Devolvemos los requisitos y el CV en formato de texto para que puedan ser utilizados por los agentes.
-
-# Leer el CV en formato LaTeX
-with open(path_cv, "r", encoding="utf-8") as file:
-    latex_text = file.read()
-
 # Leer el ejemplo de CV estructurado en formato Markdown
 with open(path_example, "r", encoding="utf-8") as file:
     ejemplo_cv = file.read()
 
 #Inicialitzem els agents amb el model local.
 #------------------------------------------------------------------------
-
-#Agente para buscar ofertas de trabajo abiertas que cumplan estrictamente los requisitos definidos por el usuario.
-user_id = "user1"
-
-requisitos_usuario, cv_usuario = cargar_usuarios(user_id)
 
 IA_extractor_dades = Agent(
     role="Extractor de Datos",
@@ -147,7 +144,7 @@ tarea_extraccion = Task(
 )
 
 tarea_busqueda=Task(
-    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}"),
+    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}\n\n"),
     expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos "
     "por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."
     "Incluye en enlace a la oferta original."),
@@ -245,7 +242,8 @@ equipo= Crew(
 # Ejecución
 resultado = equipo.kickoff(inputs={
     "cv_content": latex_text,
-    "ejemplo_cv": ejemplo_cv
+    "ejemplo_cv": ejemplo_cv,
+    "requisitos_usuario": requisitos_usuario
     })
 
 
