@@ -179,7 +179,11 @@ tarea_analisis = Task(
         "nivel de encaje (alto, medio, bajo), fortalezas del candidato respecto a la oferta, "
         "posibles carencias y justificación del ranking."
     ),
-    agent=IA_analista_oportunidades
+    agent=IA_analista_oportunidades,
+    context=[
+        tarea_extraccion,
+        tarea_busqueda
+    ]
 )
 
 tarea_cv=Task(
@@ -214,7 +218,7 @@ tarea_carta_mejor_oferta = Task(
         tarea_busqueda,
         tarea_analisis
     ],
-    output_file="outputs/carta_mejor_oferta.md"
+    output_file="outputs/carta_mejor_oferta.md" #eloutput+nombre
 )
 
 tarea_resumen_proceso = Task(
