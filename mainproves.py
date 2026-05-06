@@ -31,10 +31,7 @@ work_type = input()
 print("Indica tu disponibilidad para empezar a trabajar: (ejemplo: inmediata, 1 mes, etc.)")
 start_date = input()
 
-print("Indica el tipo de puesto que buscas: (ejemplo: desarrollador backend, analista de datos, etc.)")
-job_type = input()
-
-requisitos_usuario = f"Ubicación: {location}\nDisponibilidad: {availability}\nTipo de jornada: {work_type}\nDisponibilidad para empezar: {start_date}\nTipo de puesto: {job_type}"
+requisitos_usuario = f"Ubicación: {location}\nDisponibilidad: {availability}\nTipo de jornada: {work_type}\nDisponibilidad para empezar: {start_date}"
 
 #Funciones & Herramientas
 #-------------------------------------------------
@@ -68,7 +65,7 @@ IA_cercador_feina = Agent(
     ),
     backstory=(
         "Eres un especialista en localizar oportunidades laborales de alta calidad en múltiples "
-        "bolsas de trabajo y plataformas profesionales. Trabajas con precisión y criterio, evitando "
+        "archivos CSV. Trabajas con precisión y criterio, evitando "
         "resultados irrelevantes. Analizas cada oferta en profundidad, interpretas correctamente "
         "los requisitos y condiciones, y seleccionas únicamente aquellas que encajan realmente con "
         "los parámetros del usuario. Para cada oferta válida, registras la información clave de forma "
@@ -148,17 +145,17 @@ tarea_extraccion = Task(
 )
 
 tarea_busqueda=Task(
-    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}\n\n en el archivo {ofertas_trabajo} y seleccionar solo aquellas que encajen estrictamente con los criterios definidos por el usuario. "),
+    description=(f"Buscar ofertas que cumplan estos requisitos, teniendo en cuenta que factores como ubicación y puesto tienen prioridad:\n{requisitos_usuario}\n\n en el archivo {ofertas_trabajo} y seleccionar solo aquellas que encajen estrictamente con los criterios definidos por el usuario. "),
     expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos "
-    "por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."
-    "Incluye en enlace a la oferta original."),
+    "por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."),
     agent=IA_cercador_feina
 )
 
 tarea_analisis = Task(
     description=(
         "Analizar las ofertas obtenidas y compararlas con el CV del usuario."
-        "Filtrar y priorizar aquellas que mejor encajan con su perfil profesional."
+        "Filtrar y priorizar aquellas que mejor encajen con su perfil profesional."
+        "La ubicación es un criterio obligatorio. Si una oferta no coincide con la ubicación solicitada o con una modalidad remota aceptada por el usuario, {user_location}, debe ser descartada aunque encaje en el resto de criterios. {requisitos_usuario}"
     ),
     expected_output=(
         "Lista priorizada de ofertas filtradas. Para cada una indicar: "
@@ -184,12 +181,11 @@ tarea_carta_mejor_oferta = Task(
         "Carta de presentación personalizada únicamente para la mejor oferta seleccionada. "
         "Debe incluir: saludo profesional, breve presentación del candidato, relación directa "
         "entre el perfil del usuario y los requisitos de la oferta, motivación por el puesto "
-        "y cierre formal."
+        "y cierre formal. La carta debe ser clara, específica y no superar las 150 palabras."
     ),
     agent=IA_redactor_carta,
     context=[
         tarea_extraccion,
-        tarea_busqueda,
         tarea_analisis
     ],
     output_file="outputs/carta_mejor_oferta.md" #eloutput+nombre
@@ -215,7 +211,6 @@ tarea_resumen_proceso = Task(
     agent=IA_resumidor_proceso,
     context=[
         tarea_extraccion,
-        tarea_busqueda,
         tarea_analisis,
         tarea_carta_mejor_oferta
     ],
@@ -248,7 +243,8 @@ resultado = equipo.kickoff(inputs={
     "cv_content": latex_text,
     "ejemplo_cv": ejemplo_cv,
     "requisitos_usuario": requisitos_usuario,
-    "ofertas_trabajo": ofertas_trabajo
+    "ofertas_trabajo": ofertas_trabajo,
+    "user_location" : location
     })
 
 
