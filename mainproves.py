@@ -7,7 +7,8 @@ llm_local = LLM(
     base_url="http://localhost:11434" # Port per defecte de Llama3
 )
 
-path_example = "outputs/cv_estructurado_ejemplo.md" #Ruta al ejemplo de CV estructurado para el agente extractor de datos.
+path_example = "data/cv_estructurado_ejemplo.md" #Ruta al ejemplo de CV estructurado para el agente extractor de datos.
+path_csv = "data/ofertas_simuladas.csv" #Ruta al archivo CSV con las ofertas de empleo para el agente buscador de trabajo.
 
 #Input del usuario
 #-------------------------------------------------
@@ -40,6 +41,9 @@ requisitos_usuario = f"Ubicación: {location}\nDisponibilidad: {availability}\nT
 # Leer el ejemplo de CV estructurado en formato Markdown
 with open(path_example, "r", encoding="utf-8") as file:
     ejemplo_cv = file.read()
+    
+with open(path_csv, "r", encoding="utf-8") as file:
+    ofertas_trabajo = file.read()
 
 #Inicialitzem els agents amb el model local.
 #------------------------------------------------------------------------
@@ -144,7 +148,7 @@ tarea_extraccion = Task(
 )
 
 tarea_busqueda=Task(
-    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}\n\n"),
+    description=(f"Buscar ofertas que cumplan estos requisitos:\n{requisitos_usuario}\n\n en el archivo {ofertas_trabajo} y seleccionar solo aquellas que encajen estrictamente con los criterios definidos por el usuario. "),
     expected_output=("Una lista de ofertas de trabajo que cumplan estrictamente los requisitos definidos "
     "por el usuario, incluyendo detalles clave como puesto, empresa, ubicación, condiciones, requisitos y justificación del encaje."
     "Incluye en enlace a la oferta original."),
@@ -243,7 +247,8 @@ equipo= Crew(
 resultado = equipo.kickoff(inputs={
     "cv_content": latex_text,
     "ejemplo_cv": ejemplo_cv,
-    "requisitos_usuario": requisitos_usuario
+    "requisitos_usuario": requisitos_usuario,
+    "ofertas_trabajo": ofertas_trabajo
     })
 
 
